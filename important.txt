@@ -1,0 +1,16 @@
+docker build -t competency_genie_beta .
+
+docker run -d --rm -p 8501:8501 --name competency_genie_beta competency_genie_beta
+
+YOUR_APP_NAME: competency-genie-beta
+
+docker-compose up --build
+
+Heroku Deployment:
+
+heroku login
+heroku create competency-genie-beta
+heroku container:login
+heroku container:push web --app competency-genie-beta
+heroku container:release web --app competency-genie-beta
+heroku open --app competency-genie-beta
